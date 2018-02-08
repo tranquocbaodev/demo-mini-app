@@ -12,10 +12,8 @@ angular.module('myApp')
       };
       $http(req)
         .then(function (success) {
-          console.log(success);
           deferred.resolve(success);
         }, function (error) {
-          console.log(error);
           deferred.reject(error);
         });
       return deferred.promise;
