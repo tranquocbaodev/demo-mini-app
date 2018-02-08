@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-  .factory('appService', ['version', '$http', '$q', '$log', '$injector', function ($http, $q, $log, $injector) {
+  .factory('appService', ['$http', '$q', '$log', '$injector', function ($http, $q, $log, $injector) {
     var service = {};
     //get UserProfile
     service.getUser = function (userName) {
@@ -12,8 +12,12 @@ angular.module('myApp')
       };
       $http(req)
         .then(function (success) {
+          console.log(success);
           deferred.resolve(success);
-        }, function (error) {});
+        }, function (error) {
+          console.log(error);
+          deferred.reject(error);
+        });
       return deferred.promise;
     };
     return service;

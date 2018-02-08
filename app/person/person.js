@@ -10,11 +10,13 @@ angular.module('myApp.person', ['ngRoute'])
   }])
 
   .controller('PersonCtrl', ['$routeParams', 'appService', '$scope', '$location', function ($routeParams, appService, $scope , $location) {
-    console.log($routeParams.personName);
-    // appService.getUser($routeParams.personName).then(function (result) {
-    //   console.log(result);
-    // });
+    $scope.infoPerson = {};
+    appService.getUser($routeParams.personName).then(function (result) {
+      $scope.infoPerson = result.data;
+      console.log($scope.infoPerson);
+    });
 
     $scope.goBack = function () {
+      $location.path('home');
     }
   }]);

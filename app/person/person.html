@@ -1,7 +1,7 @@
 <!-- Header -->
 <header class="my-header">
-	<a href="javascript:;" class="back-icon" data-ng-click="goBack()">
-		<i class="fas fa-angle-left"></i>
+	<a href="javascript:;" class="back-icon" >
+		<i class="fas fa-angle-left" data-ng-click="goBack()"></i>
 		Back
 	</a>
 	<p class="title">
@@ -13,12 +13,12 @@
 <div class="main-content">
 	<div class="each-user">
 		<div class="ava-img">
-			<img src="i/web/ava.png" alt="ava">
+			<img src="i/web/ava.png" alt="ava" data-ng-src="{{infoPerson.avatar_url}}">
 		</div>
 		<div class="text-right-here">
-			<h1 class="title">Fabien Potencier</h1>
+			<h1 class="title">{{infoPerson.name}}</h1>
 			<p class="detail">
-				San Francisco
+				{{infoPerson.location}}
 			</p>
 		</div>
 		<div class="clear"></div>
